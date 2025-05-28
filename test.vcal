@@ -1,22 +1,23 @@
-g (x1, x2)
-	y = x1 + x2
-return (y)
+1, 0, 0
+Const read
+Const poll
 
 f (x1, x2)
-	x1 = ...
-	temp = ...
-	x2 = g(x2, temp) if x2 > 0
-	temp2 = ...
-return (x1, temp2)
+	x3 = +(x1, x2)
+	temp = and(x2, x3) if x2 > 0
+return (x1, temp)
 
-loop (x)
+g (x, y)
 	var = read
 	x, var = f(x, var)
-	z = x + var
-	repeat (x) if 
-return
+	write(var)
+	z = +(x, var)
+	z = shift left(z)
+	repeat (x, z) if z > 0
+return (x)
 
 main ()
 	in = read
-	loop(in)
+	test = 4
+	g(in, test)
 end

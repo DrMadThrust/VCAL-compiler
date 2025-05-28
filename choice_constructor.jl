@@ -43,7 +43,7 @@ end
 
 function wrap(asm)
     pushfirst!(asm, "@global:start {")
-    push!(asm, "repeat")
+    #push!(asm, "repeat")
     push!(asm, "}")
     return asm
 end
