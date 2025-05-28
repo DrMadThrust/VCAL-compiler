@@ -1,0 +1,22 @@
+g (x1, x2)
+	y = x1 + x2
+return (y)
+
+f (x1, x2)
+	x1 = ...
+	temp = ...
+	x2 = g(x2, temp) if x2 > 0
+	temp2 = ...
+return (x1, temp2)
+
+loop (x)
+	var = read
+	x, var = f(x, var)
+	z = x + var
+	repeat (x) if 
+return
+
+main ()
+	in = read
+	loop(in)
+end

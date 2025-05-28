@@ -1,0 +1,7 @@
+unused/
+.ipynb_checkpoints/
+
+*.mcasm
+*.axm
+*.bin
+*.mcbin
