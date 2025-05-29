@@ -1,4 +1,4 @@
-function freePos(mempos, memzero = 1)
+function freePos(mempos, memzero=1)
     pos = memzero
     vals = collect(values(mempos))
     while true

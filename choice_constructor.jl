@@ -1,10 +1,10 @@
-function create(code, mode=nothing)
+function create(code, outname="program.axm", mode=nothing)
     output = nothing
     t = translate(code)
     output = mode == "t" ? deepcopy(t) : output
     w = wrap(t)
     output = mode == "w" ? deepcopy(w) : output
-    save(w)
+    save(w, outname)
     return output
 end
 
@@ -36,6 +36,9 @@ function translate(code)
         end
         
         asmline = asmline * output * action * condition
+        if line.operation == 9
+            asmline = "break"
+        end
         push!(asm, asmline)
     end
     return asm
@@ -43,16 +46,14 @@ end
 
 function wrap(asm)
     pushfirst!(asm, "@global:start {")
-    #push!(asm, "repeat")
     push!(asm, "}")
     return asm
 end
 
-function save(program)
-    file = open("program.mcasm", "w")
+function save(program, outname="program.axm")
+    file = open(outname, "w")
     for asmline in program
         println(file, asmline)
     end
     close(file)
-    print("saved \"program.mcasm\"")
 end

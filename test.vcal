@@ -9,7 +9,9 @@ return (x1, temp)
 
 g (x, y)
 	var = read
+	var = poll
 	x, var = f(x, var)
+	write(y)
 	write(var)
 	z = +(x, var)
 	z = shift left(z)

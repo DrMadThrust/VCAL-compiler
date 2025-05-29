@@ -91,6 +91,8 @@ function choose(f, functions=Dict(), mempos=Dict())
                      delete!(mempos, varmap[var])
                 end
             end
+        elseif line.operation == 9
+            push!(preasm, Line(9, nothing, nothing, nothing, nothing))
         else
             println("invalid operation")
         end
