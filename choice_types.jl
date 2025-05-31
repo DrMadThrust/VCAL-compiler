@@ -26,3 +26,14 @@ end
 struct Flabel
     id
 end
+
+struct Memargs
+    memzero
+    regzero
+    ramzero
+    regsize
+end
+
+function getMemArgs(memargs)
+    return [memargs.memzero, memargs.regzero, memargs.ramzero, memargs.regsize]
+end

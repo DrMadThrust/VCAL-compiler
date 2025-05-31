@@ -123,7 +123,7 @@ function parseLine(line, keywords=[], fkeywords=[], scope=nothing)
     inputs = inputs == [""] ? nothing : inputs
     outputs = typeof(operation) == Flabel && operation.id != scope && outputs == nothing ? outputs = [] : outputs
     
-    condition = condition == "==" ? "=" : condition
+    #condition = condition == "==" ? "=" : condition # xdd
     
     return Line(operation, condition, outputs, inputs, conditionals)
 end
@@ -170,5 +170,5 @@ function parseVcal(vcal)
         f = parseFunction(block, keywords, fkeywords)
         push!(functions, f.name => f)
     end
-    return functions
+    return functions, Memargs(memargs...)
 end
